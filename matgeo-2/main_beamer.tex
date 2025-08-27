@@ -1,0 +1,80 @@
+\documentclass{beamer}
+\mode<presentation>
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{adjustbox}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+\usetheme{Boadilla}
+\usecolortheme{lily}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,right]{author in head/foot}%
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\setbeamertemplate{navigation symbols}{}
+
+\title{1.7.1 -- Matgeo Assignment}
+\author{ai25btech11015 -- M Sai Rithik}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+\begin{frame}{Question}
+Show that the points \((0,0)\), \((2m,-4)\), and \((3,6)\) are collinear, and hence find \(m\), using the rank method.
+\end{frame}
+
+\begin{frame}{Step 1: Form vectors}
+\[
+A = (0,0), \quad B = (2m,-4), \quad C = (3,6)
+\]
+\[
+AB = \begin{bmatrix}2m \\ -4\end{bmatrix}, 
+\quad AC = \begin{bmatrix}3 \\ 6\end{bmatrix}
+\]
+\end{frame}
+
+\begin{frame}{Step 2: Matrix form}
+Form the matrix with \(AB\) and \(AC\) as columns:
+\[
+M = \begin{bmatrix}
+2m & 3 \\
+-4 & 6
+\end{bmatrix}
+\]
+
+For collinearity, \(\text{rank}(M) = 1\), i.e. \(\det(M) = 0\).
+\end{frame}
+
+\begin{frame}{Step 3: Determinant}
+\[
+\det(M) = (2m)(6) - (-4)(3)
+\]
+\[
+\det(M) = 12m + 12
+\]
+
+For collinearity:
+\[
+12m + 12 = 0 \quad \Rightarrow \quad m = -1
+\]
+\end{frame}
+
+\begin{frame}{Final Answer}
+The points \((0,0)\), \((2m,-4)\), and \((3,6)\) are collinear when
+\[
+\boxed{m = -1}
+\]
+\end{frame}
+
+\end{document}

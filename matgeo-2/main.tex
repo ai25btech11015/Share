@@ -44,15 +44,55 @@ This means
 \text{rank}(M) = 1 \quad \Leftrightarrow \quad \det(M) = 0.
 \]
 
-\subsection*{Step 3: Determinant condition}
 \[
-\det(M) = (2m)(6) - (-4)(3) = 12m + 12.
+M=\begin{bmatrix}
+2m & 3\\
+-4 & 6
+\end{bmatrix}.
 \]
 
-Setting this equal to zero:
+We use RREF \(M\) and look for when its rank drops below \(2\).
+
 \[
-12m + 12 = 0 \quad \Rightarrow \quad m = -1.
+\begin{aligned}
+\begin{bmatrix}
+2m & 3\\
+-4 & 6
+\end{bmatrix}
+&\xrightarrow{\;R_1 \leftrightarrow R_2\;}
+\begin{bmatrix}
+-4 & 6\\
+2m & 3
+\end{bmatrix}
+\xrightarrow{\;R_1\gets -\tfrac14 R_1\;}
+\begin{bmatrix}
+1 & -\tfrac{3}{2}\\
+2m & 3
+\end{bmatrix}\\[6pt]
+&\xrightarrow{\;R_2\gets R_2-2m\,R_1\;}
+\begin{bmatrix}
+1 & -\tfrac{3}{2}\\
+0 & 3(m+1)
+\end{bmatrix}.
+\end{aligned}
 \]
+
+If \(m\neq -1\), the second row has a pivot (divide by \(3(m+1)\)), so the RREF is \(I_2\) and \(\operatorname{rank}(M)=2\).
+For the rank to drop (and hence the RREF to have a zero row), we need
+\[
+3(m+1)=0 \;\;\Rightarrow\;\; m=-1.
+\]
+
+When \(m=-1\),
+\[
+\begin{bmatrix}
+1 & -\tfrac{3}{2}\\
+0 & 0
+\end{bmatrix}
+\]
+is the reduced row-echelon form (rank \(=1\)).
+
+\medskip
 
 \section*{Final Answer}
 The given points are collinear when

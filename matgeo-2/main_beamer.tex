@@ -56,25 +56,71 @@ M = \begin{bmatrix}
 For collinearity, \(\text{rank}(M) = 1\), i.e. \(\det(M) = 0\).
 \end{frame}
 
-\begin{frame}{Step 3: Determinant}
+\begin{frame}{Step 3: Using RREF}
 \[
-\det(M) = (2m)(6) - (-4)(3)
-\]
-\[
-\det(M) = 12m + 12
+M=\begin{bmatrix}
+2m & 3\\
+-4 & 6
+\end{bmatrix}.
 \]
 
-For collinearity:
+We use RREF \(M\) and look for when its rank drops below \(2\).
+
 \[
-12m + 12 = 0 \quad \Rightarrow \quad m = -1
+\begin{aligned}
+\begin{bmatrix}
+2m & 3\\
+-4 & 6
+\end{bmatrix}
+&\xrightarrow{\;R_1 \leftrightarrow R_2\;}
+\begin{bmatrix}
+-4 & 6\\
+2m & 3
+\end{bmatrix}
+\xrightarrow{\;R_1\gets -\tfrac14 R_1\;}
+\begin{bmatrix}
+1 & -\tfrac{3}{2}\\
+2m & 3
+\end{bmatrix}\\[6pt]
+&\xrightarrow{\;R_2\gets R_2-2m\,R_1\;}
+\begin{bmatrix}
+1 & -\tfrac{3}{2}\\
+0 & 3(m+1)
+\end{bmatrix}.
+\end{aligned}
 \]
+
+If \(m\neq -1\), the second row has a pivot (divide by \(3(m+1)\)), so the RREF is \(I_2\) and \(\operatorname{rank}(M)=2\).
+For the rank to drop (and hence the RREF to have a zero row), we need
+\[
+3(m+1)=0 \;\;\Rightarrow\;\; m=-1.
+\]
+
+When \(m=-1\),
+\[
+\begin{bmatrix}
+1 & -\tfrac{3}{2}\\
+0 & 0
+\end{bmatrix}
+\]
+is the reduced row-echelon form (rank \(=1\)).
+
 \end{frame}
 
-\begin{frame}{Final Answer}
-The points \((0,0)\), \((2m,-4)\), and \((3,6)\) are collinear when
+\begin{frame}{Conclusion}
+\section*{Final Answer}
+The given points are collinear when
 \[
 \boxed{m = -1}
 \]
-\end{frame}
 
+\begin{center}
+\end{center}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\linewidth]{figs/fig.png}
+    \caption{Graph}
+\end{figure}
+\end{frame}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.8.28)  31 AUG 2025 10:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.8.28)  31 AUG 2025 10:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -345,34 +345,27 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 14.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+<figs/fig.png, id=7, 462.528pt x 346.896pt>
+File: figs/fig.png Graphic file (type png)
+<use figs/fig.png>
+Package pdftex.def Info: figs/fig.png  used on input line 55.
+(pdftex.def)             Requested size: 271.7835pt x 203.8464pt.
 
-LaTeX Warning: File `fig.png' not found on input line 55.
-
-
-! Package pdftex.def Error: File `fig.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.55 ...ludegraphics[width=0.6\linewidth]{fig.png}
-                                                  
-? 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[2] [3] (./main.aux)
+[2] [3 <./figs/fig.png>] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 7705 strings out of 474222
- 175915 string characters out of 5748733
+ 7679 strings out of 474222
+ 175503 string characters out of 5748733
  1932975 words of memory out of 5000000
- 29896 multiletter control sequences out of 15000+600000
- 568240 words of font info for 75 fonts, out of 8000000 for 9000
+ 29871 multiletter control sequences out of 15000+600000
+ 568071 words of font info for 74 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  79i,8n,93p,221b,529s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
@@ -381,12 +374,11 @@ e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (3 pages, 80255 bytes).
+ype1/public/amsfonts/cm/cmsy10.pfb>
+Output written on main.pdf (3 pages, 251792 bytes).
 PDF statistics:
- 54 PDF objects out of 1000 (max. 8388607)
- 32 compressed objects within 1 object stream
+ 52 PDF objects out of 1000 (max. 8388607)
+ 30 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

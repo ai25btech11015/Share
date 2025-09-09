@@ -1,7 +1,21 @@
 import numpy as np 
 from mpl_toolkits.mplot3d import Axes3D
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+import ctypes
 import matplotlib.pyplot as plt
+
+# Load the shared object file
+main_lib = ctypes.CDLL('./main.so')
+
+# Define input and return types for the C function
+# main_lib.main.argtypes = []
+main_lib.main.restype = ctypes.c_double
+
+# Call the C function to calculate the area
+area_value = main_lib.main()
+print(area_value)
+
+
 with open('var.dat', 'r') as f:
 	area = f.read().strip()
 
@@ -34,5 +48,5 @@ ax.legend()
 ax.set_title(f'Area = {area}')
 
 plt.tight_layout()
-plt.savefig('../figs/vectors_3d.png')
+plt.savefig('../figs/fig.png')
 plt.close()

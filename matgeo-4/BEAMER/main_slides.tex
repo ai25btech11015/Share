@@ -4,8 +4,6 @@
 
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
-\usepackage{siunitx}
-\sisetup{per-mode=symbol}
 \usepackage{gvv}
 \usepackage{listings}
 \usepackage{xcolor}
@@ -27,81 +25,98 @@
 \author{ai25btech11015 -- M Sai Rithik}
 \date{}
 
-
 \begin{document}
-\frame{\titlepage}
+\maketitle
 
 \begin{frame}
-\frametitle{Question (2.6.24)}
-Find the area of the parallelogram whose adjacent sides are given by the vectors
+\frametitle{Question}
+Find the area of the parallelogram formed by the vectors
 \[
-\Vec{a} = 3\hat{i} + \hat{j} + 4\hat{k}, \quad 
+\Vec{a} = 3\hat{i} + \hat{j} + 4\hat{k}, \qquad
 \Vec{b} = \hat{i} - \hat{j} + \hat{k}.
 \]
-Do not use determinant method; use $\|\Vec{a}\|\|\Vec{b}\|\sin\theta$.
+Use the cross product definition.
 \end{frame}
 
 \begin{frame}
-\frametitle{Step 1: Representing Vectors}
-\begin{equation}
+\frametitle{Cross Product Definition}
+\begin{itemize}
+\item Let
+\begin{align}
+\Vec{A} &= \myvec{a_1 \\ a_2 \\ a_3}, \\
+\Vec{B} &= \myvec{b_1 \\ b_2 \\ b_3}.
+\end{align}
+
+\item Define sub-vectors
+\begin{align}
+\Vec{A}_{ij} = \myvec{a_i \\ a_j}, \quad
+\Vec{B}_{ij} = \myvec{b_i \\ b_j}.
+\end{align}
+
+\item The cross product is
+\begin{align}
+\Vec{A}\times\Vec{B} =
+\myvec{
+  \mydet{\Vec{A}_{23} & \Vec{B}_{23}} \\
+  \mydet{\Vec{A}_{31} & \Vec{B}_{31}} \\
+  \mydet{\Vec{A}_{12} & \Vec{B}_{12}}
+}.
+\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Applying the Formula}
+\begin{itemize}
+\item For the given vectors
+\begin{align}
 \Vec{a} = \myvec{3 \\ 1 \\ 4}, \qquad
 \Vec{b} = \myvec{1 \\ -1 \\ 1}.
-\end{equation}
+\end{align}
+
+\item Substituting:
+\begin{align}
+\Vec{a}\times\Vec{b} &=
+\myvec{
+\mydet{\myvec{1 \\ 4} & \myvec{-1 \\ 1}} \\
+\mydet{\myvec{4 \\ 3} & \myvec{1 \\ 1}} \\
+\mydet{\myvec{3 \\ 1} & \myvec{1 \\ -1}}
+}.
+\end{align}
+\end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Step 2: Magnitudes}
-\begin{equation}
-\|\Vec{a}\| = \sqrt{3^2 + 1^2 + 4^2} = \sqrt{26},
-\end{equation}
-\begin{equation}
-\|\Vec{b}\| = \sqrt{1^2 + (-1)^2 + 1^2} = \sqrt{3}.
-\end{equation}
+\frametitle{Simplification}
+\begin{align}
+\Vec{a}\times\Vec{b} &=
+\myvec{
+(1)(1) - (4)(-1) \\
+(4)(1) - (3)(1) \\
+(3)(-1) - (1)(1)
+} \\
+&= \myvec{5 \\ 1 \\ -4}.
+\end{align}
 \end{frame}
 
 \begin{frame}
-\frametitle{Step 3: Dot Product and $\cos\theta$}
-\begin{equation}
-\Vec{a}\cdot\Vec{b} = 3(1) + 1(-1) + 4(1) = 6,
-\end{equation}
-\begin{equation}
-\cos\theta = \frac{\Vec{a}\cdot\Vec{b}}{\|\Vec{a}\|\|\Vec{b}\|}
-= \frac{6}{\sqrt{26}\sqrt{3}} = \frac{6}{\sqrt{78}}.
-\end{equation}
-\end{frame}
+\frametitle{Area of Parallelogram}
+\begin{align}
+\text{Area} &= \|\Vec{a}\times\Vec{b}\| \\
+&= \sqrt{5^2 + 1^2 + (-4)^2} \\
+&= \sqrt{42}.
+\end{align}
 
-\begin{frame}
-\frametitle{Step 4: Finding $\sin\theta$}
-\begin{equation}
-\sin\theta = \sqrt{1 - \cos^2\theta}
-= \sqrt{1 - \left(\frac{6}{\sqrt{78}}\right)^2},
-\end{equation}
-\begin{equation}
-\sin\theta = \sqrt{\frac{7}{13}}.
-\end{equation}
-\end{frame}
-
-\begin{frame}
-\frametitle{Step 5: Area of Parallelogram}
-\begin{equation}
-\text{Area} = \|\Vec{a}\| \|\Vec{b}\| \sin\theta,
-\end{equation}
-\begin{equation}
-= \sqrt{26}\,\sqrt{3}\,\sqrt{\tfrac{7}{13}}
-= \sqrt{42}.
-\end{equation}
-\end{frame}
-
-\begin{frame}
-\frametitle{Final Answer}
-\begin{equation}
+\[
 \boxed{\text{Area} = \sqrt{42}}
-\end{equation}
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.6\linewidth]{figs/fig.png}
-    \caption{Parallelogram spanned by $\Vec{a}$ and $\Vec{b}$.}
-\end{figure}
+\]
+\end{frame}
+
+\begin{frame}
+\frametitle{Figure}
+\centering
+\includegraphics[width=0.6\linewidth]{figs/fig.png}
+\caption{Parallelogram spanned by $\Vec{a}$ and $\Vec{b}$.}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -112,7 +127,7 @@ Do not use determinant method; use $\|\Vec{a}\|\|\Vec{b}\|\sin\theta$.
 #include "libs/matfun.h"
 #include <math.h>
 
-int main() {
+double main() {
     // create a b vectros 
     double **a = createMat(3,1);
     a[0][0] = 3;
@@ -124,19 +139,21 @@ int main() {
     b[1][0] = -1;
     b[2][0] = 1;
 
+
+    double **a_cross_b = createMat(3,1);
+    a_cross_b[0][0] = a[1][0] * b[2][0] - a[2][0] * b[1][0];
+    a_cross_b[1][0] = a[2][0] * b[0][0] - a[0][0] * b[2][0];
+    a_cross_b[2][0] = a[0][0] * b[1][0] - a[1][0] * b[0][0];
+
+    double area = sqrt(Matdot(a_cross_b, a_cross_b, 3));
 \end{lstlisting}
 \end{frame}
+
 
 \begin{frame}[fragile]
     \frametitle{C Code}
     \begin{lstlisting}[language=C]
-    double mag_a = sqrt(Matdot(a, a,3));
-    double mag_b = sqrt(Matdot(b, b,3));
-
-    double cos_theta = Matdot(a, b,3) / (mag_a * mag_b);
-    double angle = acos(cos_theta);
-
-    double area = mag_a * mag_b * sin(angle);
+    printf("Area of the parallelogram: %lf\n", area);
 
     FILE *fp = fopen("var.dat", "w");
     if (fp != NULL) {
@@ -145,26 +162,44 @@ int main() {
     } else {
         printf("Error opening file for writing.\n");
     }
-    return 0;
+    return area;
 }
-
 \end{lstlisting}
 \end{frame}
-
+    
 \begin{frame}[fragile]
     \frametitle{Python Code}
-    \begin{lstlisting}[language=python]
+    \begin{lstlisting}[language=Python]
 import numpy as np 
 from mpl_toolkits.mplot3d import Axes3D
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+import ctypes
 import matplotlib.pyplot as plt
+
+# Load the shared object file
+main_lib = ctypes.CDLL('./main.so')
+
+# Define input and return types for the C function
+# main_lib.main.argtypes = []
+main_lib.main.restype = ctypes.c_double
+
+# Call the C function to calculate the area
+area_value = main_lib.main()
+print(area_value)
+
+
 with open('var.dat', 'r') as f:
 	area = f.read().strip()
 
 a = np.array([3, 1, 4])
 b = np.array([1, -1, 1])
 O = np.array([0, 0, 0])
+\end{lstlisting}
+\end{frame}
 
+\begin{frame}[fragile]
+    \frametitle{Python Code}
+    \begin{lstlisting}[language=Python]
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 
@@ -176,12 +211,6 @@ ax.text(b[0], b[1], b[2], 'OB', color='b', fontsize=12)
 
 verts = [ [O, a, a+b, b] ]
 ax.add_collection3d(Poly3DCollection(verts, alpha=0.3, facecolor='green'))
-\end{lstlisting}
-\end{frame}
-
-\begin{frame}[fragile]
-    \frametitle{Python Code}
-    \begin{lstlisting}[language=C]
 
 # Set limits and labels
 ax.set_xlim([0, max(a[0], b[0], a[0]+b[0])+1])
@@ -192,13 +221,19 @@ ax.set_ylabel('Y')
 ax.set_zlabel('Z')
 ax.legend()
 
-# Set the graph title to the area value
-ax.set_title(f'Area = {area}')
 
+\end{lstlisting}
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]
+    \frametitle{Python Code}
+    \begin{lstlisting}[language=Python]
 plt.tight_layout()
-plt.savefig('../figs/vectors_3d.png')
+plt.savefig('../figs/fig.png')
 plt.close()
-
 \end{lstlisting}
 \end{frame}
 \end{document}

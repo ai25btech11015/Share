@@ -1,0 +1,108 @@
+\documentclass{beamer}
+\usetheme{Boadilla}
+
+\usepackage{amsmath,amssymb}
+\usepackage{gvv}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Code style
+\lstset{
+  basicstyle=\ttfamily\scriptsize,
+  breaklines=true,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green!50!black},
+  stringstyle=\color{red!60!black},
+  showstringspaces=false
+}
+
+\title{4.13.84}
+\author{ai25btech11015 -- M Sai Rithik}
+\date{}
+
+\begin{document}
+
+\frame{\titlepage}
+
+% --- Question ---
+\begin{frame}
+\frametitle{Question}
+Find the value of \(k\) such that the line
+\[
+\frac{x-4}{1} = \frac{y-2}{1} = \frac{z-k}{2}
+\]
+lies in the plane
+\[
+2x - 4y + z = 7
+\]
+\end{frame}
+
+% --- Step 1: Parametric Line ---
+\begin{frame}
+\frametitle{Step 1: Parametric Form of Line}
+Let the line parameter be \(t\):
+\[
+\begin{aligned}
+x &= 4 + t,\\
+y &= 2 + t,\\
+z &= k + 2t.
+\end{aligned}
+\]
+
+Matrix form:
+\[
+\Vec{r}(t) = \myvec{4\\2\\k} + t \myvec{1\\1\\2}.
+\]
+\end{frame}
+
+% --- Step 2: Plane Equation in Matrix Form ---
+\begin{frame}
+\frametitle{Step 2: Plane in Matrix Form}
+Plane equation:
+\[
+2x - 4y + z = 7
+\]
+
+Normal vector:
+\[
+\Vec{n} = \myvec{2\\-4\\1}.
+\]
+
+Substitute line into plane:
+\[
+\Vec{n}^T \Vec{r}(t) = \Vec{n}^T \myvec{4\\2\\k} + \Vec{n}^T \myvec{1\\1\\2} t = 7
+\]
+\end{frame}
+
+% --- Step 3: Multiply Matrices ---
+\begin{frame}
+\frametitle{Step 3: Multiply Matrices}
+\[
+\underbrace{\myvec{2 & -4 & 1}\myvec{1\\1\\2}}_{0} t
++
+\underbrace{\myvec{2 & -4 & 1}\myvec{4\\2\\k}}_{k} = 7
+\]
+
+\[
+0\cdot t + k = 7
+\]
+\end{frame}
+
+% --- Step 4: Solve for k ---
+\begin{frame}
+\frametitle{Step 4: Solve for \(k\)}
+\[
+k = 7
+\]
+
+\section*{Answer}
+\[
+\boxed{k = 7}
+\]
+\end{frame}
+
+
+\end{document}

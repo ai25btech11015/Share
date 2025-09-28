@@ -1,0 +1,62 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{gvv}
+
+\title{4.13.84}
+\author{ai25btech11015 -- M Sai Rithik}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Question}
+Find the value of \(k\) such that the line
+\[
+\frac{x-4}{1} = \frac{y-2}{1} = \frac{z-k}{2}
+\]
+lies in the plane
+\[
+2x - 4y + z = 7
+\]
+
+\section*{Solution}
+
+\begin{itemize}
+\item Parametric form of line:
+\[
+\begin{bmatrix} x\\y\\z \end{bmatrix} = 
+\begin{bmatrix} 4\\2\\k \end{bmatrix} + t \begin{bmatrix} 1\\1\\2 \end{bmatrix}.
+\]
+
+\item Plane equation in matrix form:
+\[
+\begin{bmatrix} 2 & -4 & 1 \end{bmatrix} 
+\begin{bmatrix} x\\y\\z \end{bmatrix} = 7
+\]
+
+\item Substitute line into plane:
+\[
+\begin{bmatrix} 2 & -4 & 1 \end{bmatrix} 
+\Bigg( \begin{bmatrix} 4\\2\\k \end{bmatrix} + t \begin{bmatrix} 1\\1\\2 \end{bmatrix} \Bigg) = 7
+\]
+
+\item Multiply matrices:
+\[
+\underbrace{\begin{bmatrix} 2 & -4 & 1 \end{bmatrix} \begin{bmatrix} 1\\1\\2 \end{bmatrix}}_{=0} t
++
+\underbrace{\begin{bmatrix} 2 & -4 & 1 \end{bmatrix} \begin{bmatrix} 4\\2\\k \end{bmatrix}}_{=k} = 7
+\]
+
+\item Solve:
+\[
+k = 7
+\]
+\end{itemize}
+
+\section*{Answer}
+\[
+\boxed{k = 7}
+\]
+
+\end{document}

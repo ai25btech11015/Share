@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\sisetup{per-mode=symbol}
+\usepackage{gvv}
+
+\title{Matrix 5.5.32}
+\author{ai25btech11015 -- M Sai Rithik}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem}
+If
+\begin{equation}
+A=\myvec{1 & \cot x \\[4pt] -\cot x & 1 },
+\end{equation}
+show that
+\begin{equation}
+A^{\top}A^{-1}=\myvec{ -\cos2x & -\sin2x \\[4pt] \sin2x & -\cos2x }.
+\end{equation}
+
+\section*{Solution}
+
+First compute the determinant of \(A\).
+\begin{equation}
+\det A = 1\cdot 1 - (\cot x)(-\cot x)
+= 1 + \cot^2 x = \csc^2 x.
+\end{equation}
+
+Hence the inverse of \(A\) is
+\begin{equation}
+A^{-1} = \frac{1}{\det A}\myvec{1 & -\cot x \\[4pt] \cot x & 1}
+= \sin^2 x \,\myvec{1 & -\cot x \\[4pt] \cot x & 1}.
+\end{equation}
+
+The transpose of \(A\) is
+\begin{equation}
+A^{\top}=\myvec{1 & -\cot x \\[4pt] \cot x & 1}.
+\end{equation}
+
+Form the product \(A^{\top}A^{-1}\). Using \(t=\cot x\) for brevity,
+\begin{equation}
+A^{\top}A^{-1}
+= \sin^2 x \;\myvec{1 & -t \\[4pt] t & 1}\;\myvec{1 & -t \\[4pt] t & 1}.
+\end{equation}
+
+Compute the inside product:
+\begin{equation}
+\myvec{1 & -t \\[4pt] t & 1}\;\myvec{1 & -t \\[4pt] t & 1}
+= \myvec{1-t^2 & -2t \\[4pt] 2t & 1-t^2 }.
+\end{equation}
+
+Now substitute \(t=\cot x=\dfrac{\cos x}{\sin x}\) and multiply by \(\sin^2 x\):
+\begin{align}
+\sin^2 x\,(1-t^2)
+&= \sin^2 x\!\left(1-\frac{\cos^2 x}{\sin^2 x}\right)
+= \sin^2 x\!\left(\frac{\sin^2 x-\cos^2 x}{\sin^2 x}\right)
+= \sin^2 x - \cos^2 x
+= -\cos 2x, \\
+\sin^2 x\,(-2t)
+&= -2\sin^2 x\cdot\frac{\cos x}{\sin x}
+= -2\sin x\cos x
+= -\sin 2x, \\
+\sin^2 x\,(2t)
+&= 2\sin^2 x\cdot\frac{\cos x}{\sin x}
+= 2\sin x\cos x
+= \sin 2x.
+\end{align}
+
+Therefore
+\begin{equation}
+A^{\top}A^{-1}
+= \myvec{-\cos 2x & -\sin 2x \\[4pt] \sin 2x & -\cos 2x},
+\end{equation}
+as required.
+
+\end{document}

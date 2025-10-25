@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{siunitx}
 \sisetup{per-mode=symbol}
+\usepackage{gvv}
 
 
 \title{Matrix 1.7.1}
@@ -25,70 +26,44 @@ A = (0,0), \quad B = (2m,-4), \quad C = (3,6).
 
 \subsection*{Step 1: Form vectors}
 \[
-AB = B - A = \begin{bmatrix} 2m \\ -4 \end{bmatrix}, 
-\quad AC = C - A = \begin{bmatrix} 3 \\ 6 \end{bmatrix}.
+\Vec{AB} = B - A = \myvec{2m \\ -4}, 
+\quad \Vec{AC} = C - A = \myvec{3 \\ 6}.
 \]
 
 \subsection*{Step 2: Matrix form}
 Construct the matrix
 \[
-M = \begin{bmatrix}
-2m & 3 \\
--4 & 6
-\end{bmatrix}.
+M = \myvec{2m & 3 \\ -4 & 6}.
 \]
 
-For the points to be collinear, the two vectors \(AB\) and \(AC\) must be linearly dependent.  
+For the points to be collinear, the two vectors \(\Vec{AB}\) and \(\Vec{AC}\) must be linearly dependent.  
 This means
 \[
-\text{rank}(M) = 1 \quad \Leftrightarrow \quad \det(M) = 0.
+\operatorname{rank}(M) = 1 \quad \Leftrightarrow \quad \det(M) = 0.
 \]
 
-\[
-M=\begin{bmatrix}
-2m & 3\\
--4 & 6
-\end{bmatrix}.
-\]
-
-We use RREF \(M\) and look for when its rank drops below \(2\).
-
+\subsection*{Step 3: Row-reduction}
 \[
 \begin{aligned}
-\begin{bmatrix}
-2m & 3\\
--4 & 6
-\end{bmatrix}
+\myvec{2m & 3 \\ -4 & 6}
 &\xrightarrow{\;R_1 \leftrightarrow R_2\;}
-\begin{bmatrix}
--4 & 6\\
-2m & 3
-\end{bmatrix}
+\myvec{-4 & 6 \\ 2m & 3}
 \xrightarrow{\;R_1\gets -\tfrac14 R_1\;}
-\begin{bmatrix}
-1 & -\tfrac{3}{2}\\
-2m & 3
-\end{bmatrix}\\[6pt]
+\myvec{1 & -\tfrac{3}{2} \\ 2m & 3}\\[6pt]
 &\xrightarrow{\;R_2\gets R_2-2m\,R_1\;}
-\begin{bmatrix}
-1 & -\tfrac{3}{2}\\
-0 & 3(m+1)
-\end{bmatrix}.
+\myvec{1 & -\tfrac{3}{2} \\ 0 & 3(m+1)}.
 \end{aligned}
 \]
 
-If \(m\neq -1\), the second row has a pivot (divide by \(3(m+1)\)), so the RREF is \(I_2\) and \(\operatorname{rank}(M)=2\).
-For the rank to drop (and hence the RREF to have a zero row), we need
+If \(m\neq -1\), the second row has a pivot, so the RREF is \(I_2\) and \(\operatorname{rank}(M)=2\).  
+For the rank to drop, we require
 \[
 3(m+1)=0 \;\;\Rightarrow\;\; m=-1.
 \]
 
 When \(m=-1\),
 \[
-\begin{bmatrix}
-1 & -\tfrac{3}{2}\\
-0 & 0
-\end{bmatrix}
+\myvec{1 & -\tfrac{3}{2} \\ 0 & 0}
 \]
 is the reduced row-echelon form (rank \(=1\)).
 
@@ -99,9 +74,6 @@ The given points are collinear when
 \[
 \boxed{m = -1}
 \]
-
-\begin{center}
-\end{center}
 
 \begin{figure}[h!]
     \centering

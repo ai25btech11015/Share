@@ -1,27 +1,31 @@
+
 import numpy as np
 import matplotlib.pyplot as plt
+import ctypes
+import os
 
-# angles in radians
-B = np.deg2rad(60)
-C = np.deg2rad(45)
+# Load DLL and call solve_triangle
+dll_path = os.path.join(os.path.dirname(__file__), 'main.dll')
+main = ctypes.CDLL(dll_path)
+solve_triangle = main.solve
 
-# Coefficient matrix and RHS vector
-A = np.array([
-    [1, 1, 1],
-    [-1, np.cos(C), np.cos(B)],
-    [0, np.sin(C), -np.sin(B)]
-], dtype=float)
 
-rhs = np.array([12, 0, 0], dtype=float)
+arr = np.array([1.0, 2.0, 3.0], dtype=np.float64)
 
-# Solve the linear system
-a, b, c = np.linalg.solve(A, rhs)
-print(f"a = {a:.3f}, b = {b:.3f}, c = {c:.3f}")
 
-# Coordinates of vertices
-B_pt = np.array([0, 0])
-C_pt = np.array([a, 0])
-A_pt = np.array([c*np.cos(B), c*np.sin(B)])
+
+
+solve_triangle.argtypes = [ctypes.POINTER(ctypes.c_double)]
+solve_triangle.restype = None
+
+
+solve_triangle(arr.ctypes.data_as(ctypes.POINTER(ctypes.c_double)))
+
+# Compute coordinates as in C
+B_pt = np.array([0.0, 0.0])
+C_pt = np.array([arr[0], 0.0])
+B_rad = np.deg2rad(60)
+A_pt = np.array([arr[2] * np.cos(B_rad), arr[2] * np.sin(B_rad)])
 
 # Plot the triangle
 x = [A_pt[0], B_pt[0], C_pt[0], A_pt[0]]
@@ -33,7 +37,6 @@ plt.scatter(x, y)
 plt.text(A_pt[0], A_pt[1], "A")
 plt.text(B_pt[0], B_pt[1], "B")
 plt.text(C_pt[0], C_pt[1], "C")
-
 
 plt.axhline(0, color='black')   # x-axis
 plt.axvline(0, color='black')   # y-axis
